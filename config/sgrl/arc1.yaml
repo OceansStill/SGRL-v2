@@ -1,0 +1,27 @@
+# Use the upstream ARC builder; official score additionally needs ARC voting.
+data_path: data/arc1-aug-1000
+output_dir: runs/sgrl-arc1-base
+stage: base
+device: cuda
+seed: 0
+batch_size: 2
+steps: 10000
+epochs_per_iter: 16
+learning_rate: 0.0001
+save_every: 100
+eval_every: 0
+eval_loops: 1000
+model:
+  hidden_size: 512
+  num_heads: 8
+  puzzle_emb_ndim: 512
+  puzzle_emb_len: 16
+  forward_dtype: float32
+  activation_checkpointing: true
+recovery:
+  loops: 72
+  terminal_window: 2
+  anchor_min: 12
+  anchor_max: 36
+  bridge_steps: 4
+  max_anchors: 1

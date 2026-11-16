@@ -1,0 +1,27 @@
+# Same method, 30x30 token inputs; compute/memory cost is not benchmarked.
+data_path: data/maze-30x30-hard-1k-noaug
+output_dir: runs/sgrl-maze-base
+stage: base
+device: cuda
+seed: 0
+batch_size: 2
+steps: 10000
+epochs_per_iter: 16
+learning_rate: 0.0001
+save_every: 100
+eval_every: 0
+eval_loops: 1000
+model:
+  hidden_size: 512
+  num_heads: 8
+  puzzle_emb_ndim: 512
+  puzzle_emb_len: 16
+  forward_dtype: float32
+  activation_checkpointing: true
+recovery:
+  loops: 144
+  terminal_window: 2
+  anchor_min: 24
+  anchor_max: 72
+  bridge_steps: 4
+  max_anchors: 1

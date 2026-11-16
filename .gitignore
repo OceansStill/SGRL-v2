@@ -6,6 +6,7 @@ build/
 __pycache__/
 *.py[cod]
 .cache/
+.pytest_cache/
 
 # uv / virtual env (uv.lock is tracked for reproducible installs)
 .venv/
@@ -13,10 +14,20 @@ __pycache__/
 # Editors / tooling
 .cursor/
 .claude/
+.codex/
+.agents/
+
+# Local credentials and machine-specific environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
 
 # Datasets, checkpoints, and run outputs (user-generated, not shipped)
 data/
 checkpoints/
+evaluations/
 outputs/
 runs/
 results/
@@ -26,6 +37,10 @@ wandb/
 figs/
 figures/
 tmp/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
 
 # Cluster launch scripts (kept local; reproduce via config/ + torchrun — see README)
 train_fprm_*.sh
